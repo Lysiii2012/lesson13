@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn-group{
+        display: flex;
+        gap: 20px;
+    }
+    .btn-group button{
+        display: block;
+        background: rgb(1, 101, 167);
+        color: #fff;
+        padding:10px 20px;
+        font-weight: 700;
+        border: none;
+        border-radius: 10px;
+    }
+    button.active{
+        background: darkred;
+    }
+</style>
+<body>
+    <div class="btn-group">
+        <button>Кнопка 1</button>
+        <button>Кнопка 2</button>
+        <button>Кнопка 3</button>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const groupBtn = document.querySelector('.btn-group');
+    
+            groupBtn.addEventListener('click', (e) => {
+                const target = e.target;
+                if (target.tagName === 'BUTTON') {
+                    groupBtn.querySelectorAll('button').forEach(button => {
+                    button.classList.remove('active');
+                });
+                    target.classList.add('active');
+                    alert(`Ви натиснули на: ${target.textContent}`);
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>
